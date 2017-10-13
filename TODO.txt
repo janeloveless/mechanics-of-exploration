@@ -1,0 +1,6 @@
+# REFACTORING TODO
+
+[ ] only needed neuromech submodules :
+	[ ] model	-- collection of models (full dissipative, axial-only, conservative head, feedback + mutual inhibition) used in the paper
+	[ ] analysis	-- functions used for analysing models or their outputs
+	[ ] util	-- functions for pretty plotting, doing numerical integration, wrappers, etc.
