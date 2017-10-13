@@ -8,14 +8,14 @@ Python scripts which use this module to generate data, run analyses, and produce
 the plots shown in the main paper.
 
 There are a few dependencies for this code to work :
-	numpy (ideally compiled with support for LAPACK/BLAS)
-	scipy (ideally compiled with support for LAPACK/BLAS)
-	sympy
+	numpy (ideally compiled with support for LAPACK/BLAS),
+	scipy (ideally compiled with support for LAPACK/BLAS),
+	sympy,
 	matplotlib (animation backend is required to reproduce supplemental
-		    video content)
+		    video content),
 	odespy (available at https://github.com/hplgit/odespy; this must be
 		compiled with support for the ODEPACK solvers and FORTRAN
-		compilation)
+		compilation),
 	powerlaw (available at https://pypi.python.org/pypi/powerlaw)
 
 
@@ -31,12 +31,12 @@ provides some helper functions for doing classical mechanics in a Hamiltonian
 framework.
 
 <b>analysis</b>
-routines for analysing models, either directly or via data generated through
-simulation
+provides routines for analysing models, either directly or via data generated
+through simulation
 
 <b>util</b>
-utility functions and wrappers, e.g. tools for pretty plotting; tools for
-numerical integration using odespy; tools for generating FORTRAN source code
+provides utility functions and wrappers, e.g. tools for pretty plotting; tools
+for numerical integration using odespy; tools for generating FORTRAN source code
 compatible with odespy from a system of symbolic differential equations using
 sympy
 
