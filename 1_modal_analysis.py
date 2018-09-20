@@ -170,6 +170,19 @@ v_t = v_t[np.argsort(lam_t)]
 lam_t = np.sort(lam_t)
 
 
+D4_szigeti__top_rows = np.array([[1, -2, 1] + [0]*67, [-2, 5, -4, 1] + [0]*66])
+D4_szigeti__mid_rows = sp.linalg.circulant([1, -4, 6, -4, 1] + [0]*65)[4:]
+D4_szigeti__bot_rows = np.array([[0]*66 + [1, -4, 5, -2], [0]*67 + [1, -2, 1]])
+D4_szigeti = np.append(np.append(D4_szigeti__top_rows, 
+                                 D4_szigeti__mid_rows, axis=0),
+                                 D4_szigeti__bot_rows, axis=0)
+
+lam_t_szigeti, v_t_szigeti = np.linalg.eig(D4_szigeti)
+v_t_szigeti = v_t_szigeti.T
+v_t_szigeti = v_t_szigeti[np.argsort(lam_t_szigeti)]
+lam_t_szigeti = np.abs(np.sort(lam_t_szigeti))
+
+
 """
 Transform our mode shapes into the postural frame used by Szigeti et al.
 """

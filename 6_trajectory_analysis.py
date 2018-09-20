@@ -596,6 +596,70 @@ plt.ion()
 plt.show()
 
 
+plt.ioff()
+fig = plt.figure("speed-curvature power law", figsize=(4, 4))
+plt.clf()
+plot = fig.add_subplot(111)
+#plt.scatter(np.log10(np.concatenate(Cs))[::250], 
+#            np.log10(np.concatenate(As))[::250], c='grey', edgecolors="none",
+#            s=3,
+#            alpha=1.)
+plt.scatter(np.log10(np.concatenate(Cs))[::100], 
+            np.log10(np.concatenate(As))[::100], c='grey', edgecolors="none",
+            s=2,
+            alpha=0.1)
+plt.plot(np.log10(C_axis), CA_fit_high_C_slope*np.log10(C_axis) + CA_fit_high_C_intercept,
+        c='RoyalBlue', lw=2, alpha=0.5)
+#plt.plot(np.log10(C_axis), CA_fit_low_C_slope*np.log10(C_axis) + CA_fit_low_C_intercept, 
+#        c='r', lw=2, alpha=0.3)
+plt.xlabel("log$_{10}$ curvature", fontsize=fontsize)
+plt.ylabel("log$_{10}$ angular speed", fontsize=fontsize)
+plot.tick_params(axis="both", which="major", labelsize=fontsize)
+plt.grid(False)
+plt.xlim(-6, 6)
+plt.ylim(-8, 4)
+plt.xticks([-6, -4, -2, 0, 2, 4, 6])
+plt.yticks([-7, -2, 3])
+nm.util.hide_spines()
+plt.tight_layout()
+if SAVE_PLOTS : plt.savefig(PLOT_PATH + "speed_curvature_power_law.png", dpi=output_dpi)
+if not SHOW_PLOTS : plt.close()
+plt.ion()
+plt.show()
+
+plt.ioff()
+fig = plt.figure("speed-curvature time series", figsize=(3, 4))
+plt.clf()
+i_repr = 5
+plot = fig.add_subplot(211)
+plt.ylabel("curvature", fontsize=fontsize)
+plt.plot(t[1502:] - t[1502], Cs[i_repr], c='k', lw=2, alpha=0.8)
+plt.xlim(0, 120)
+plt.xticks([0, 30, 60, 90, 120])
+plt.ylim(0, 0.25)
+plt.yticks([0, 0.1, 0.2])
+plt.grid(False)
+plot.tick_params(axis="both", which="major", labelsize=fontsize)
+plot = fig.add_subplot(212)
+plt.ylabel("angular speed", fontsize=fontsize)
+plt.xlabel("time (s)")
+plt.plot(t[1502:] - t[1502], As[i_repr], c='k', lw=2, alpha=0.8)
+plt.xlim(0, 120)
+plt.xticks([0, 30, 60, 90, 120])
+plt.ylim(0, 0.25)
+plt.yticks([0, 0.1, 0.2])
+plt.grid(False)
+plot.tick_params(axis="both", which="major", labelsize=fontsize)
+#plt.xticks([-6, -4, -2, 0, 2, 4, 6])
+#plt.yticks([-7, -2, 3])
+nm.util.hide_spines()
+plt.tight_layout()
+if SAVE_PLOTS : plt.savefig(PLOT_PATH + "speed_curvature_time_series.png", dpi=output_dpi)
+if not SHOW_PLOTS : plt.close()
+plt.ion()
+plt.show()
+
+
 """
 Chaos analysis etc.
 """
